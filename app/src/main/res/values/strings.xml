@@ -4,4 +4,12 @@
     <string name="offline_description">Imagen que representa el tiempo cuando no hay internet</string>
     <string name="stone_button">Sistema piedra</string>
     <string name="donkey_button">Sistema burro</string>
+    <string name="forecast_image_description">Imagen del tiempo que hace</string>
+    <string name="max_temp_format">Temp. maxima: %.1f %s</string>
+    <string name="min_temp_format">Temp. minima: %.1f %s</string>
+    <string name="humidity_format">Humedad: %.0f %%</string>
+    <string name="temp_measures">Introduce las unidades de temperatura</string>
+    <string name="celsius_unit">Unidades Celsius</string>
+    <string name="farenheit_units">Unidades Farenheit</string>
+    <string name="settings">Ajustes</string>
 </resources>
