@@ -1,4 +1,5 @@
-package com.example.alancasas.guedr
+package com.example.alancasas.guedr.model
+
 
 data class Forecast (val maxTemp: Float, val minTemp:Float, val humitity: Float, val description:String, val icon: Int ){
     enum class TempUnit{

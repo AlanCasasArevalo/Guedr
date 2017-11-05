@@ -1,4 +1,4 @@
-package com.example.alancasas.guedr
+package com.example.alancasas.guedr.fragment
 
 import android.app.Activity
 import android.app.Fragment
@@ -10,10 +10,13 @@ import android.util.Log
 import android.view.*
 import android.widget.ImageView
 import android.widget.TextView
+import com.example.alancasas.guedr.PREFERENCE_SHOW_CELSIUS
+import com.example.alancasas.guedr.R
+import com.example.alancasas.guedr.activity.SettingsActivity
+import com.example.alancasas.guedr.model.Forecast
 
 class ForecastFragment : Fragment() {
-
-    val TAG = ForecastActivity::class.java.canonicalName
+    val TAG = "Guedr"
 
     lateinit var rootView : View
 
@@ -24,7 +27,7 @@ class ForecastFragment : Fragment() {
         val REQUEST_UNITS = 1
     }
 
-    var forecast:Forecast? = null
+    var forecast: Forecast? = null
         set(value){
 
             field = value
@@ -58,7 +61,7 @@ class ForecastFragment : Fragment() {
             //It es cuando inflater no es null es igual que hacer if (inflater != null)
             rootView = it.inflate(R.layout.fragment_forecast,container, false)
             //IMPORTANTE EL MODELO HA DE ESTAR DESPUES DE QUE LA VISTA ESTE CREADO
-            forecast = Forecast(25f,18f,40f,"Calor",R.drawable.ico_01)
+            forecast = Forecast(25f, 18f, 40f, "Calor", R.drawable.ico_01)
         }
 
         return rootView
@@ -79,7 +82,7 @@ class ForecastFragment : Fragment() {
 
             val intent = SettingsActivity.intent(activity, units)
 
-            startActivityForResult(intent, ForecastFragment.REQUEST_UNITS)
+            startActivityForResult(intent, REQUEST_UNITS)
 
             return true
         }
@@ -111,6 +114,7 @@ class ForecastFragment : Fragment() {
 
         if (requestCode == REQUEST_UNITS) {
             if (resultCode == Activity.RESULT_OK) {
+
                 val unitSelected = data?.getIntExtra(SettingsActivity.EXTRA_UNITS, R.id.celsius_rb)
 
                 when (unitSelected) {

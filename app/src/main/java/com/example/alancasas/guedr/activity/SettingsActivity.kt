@@ -1,4 +1,4 @@
-package com.example.alancasas.guedr
+package com.example.alancasas.guedr.activity
 
 import android.app.Activity
 import android.content.Context
@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Button
 import android.widget.RadioGroup
+import com.example.alancasas.guedr.R
 
 class SettingsActivity : AppCompatActivity (){
 

@@ -1,7 +1,8 @@
-package com.example.alancasas.guedr
+package com.example.alancasas.guedr.activity
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import com.example.alancasas.guedr.R
 
 class ForecastActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
