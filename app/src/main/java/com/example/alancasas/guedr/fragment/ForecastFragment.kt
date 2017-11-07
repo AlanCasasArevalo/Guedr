@@ -13,6 +13,7 @@ import android.widget.TextView
 import com.example.alancasas.guedr.PREFERENCE_SHOW_CELSIUS
 import com.example.alancasas.guedr.R
 import com.example.alancasas.guedr.activity.SettingsActivity
+import com.example.alancasas.guedr.model.City
 import com.example.alancasas.guedr.model.Forecast
 
 class ForecastFragment : Fragment() {
@@ -25,7 +26,25 @@ class ForecastFragment : Fragment() {
 
     companion object {
         val REQUEST_UNITS = 1
+        private val ARG_CITY = "ARG_CITY"
+
+        fun newInstance(city: City) : ForecastFragment {
+            val fragment = ForecastFragment()
+            val arguments = Bundle()
+            arguments.putSerializable(ARG_CITY, city)
+            fragment.arguments = arguments
+            return fragment
+        }
     }
+
+    var city:City? = null
+        set(value) {
+            if (value != null){
+                // rootView.findViewById<TextView>(R.id.city).setText(value?.name)
+                rootView.findViewById<TextView>(R.id.city).text = value.name
+                forecast = value.forecast
+            }
+        }
 
     var forecast: Forecast? = null
         set(value){
@@ -60,8 +79,10 @@ class ForecastFragment : Fragment() {
         inflater?.let {
             //It es cuando inflater no es null es igual que hacer if (inflater != null)
             rootView = it.inflate(R.layout.fragment_forecast,container, false)
-            //IMPORTANTE EL MODELO HA DE ESTAR DESPUES DE QUE LA VISTA ESTE CREADO
-            forecast = Forecast(25f, 18f, 40f, "Calor", R.drawable.ico_01)
+
+            if (arguments != null){
+                city = arguments.getSerializable(ARG_CITY) as? City
+            }
         }
 
         return rootView
@@ -87,6 +108,14 @@ class ForecastFragment : Fragment() {
             return true
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    //ViewWillAppear Android
+    override fun setUserVisibleHint(isVisibleToUser: Boolean) {
+        super.setUserVisibleHint(isVisibleToUser)
+        if(isVisibleToUser && forecast != null){
+            updateTemperature()
+        }
     }
 
     private fun updateTemperature() {

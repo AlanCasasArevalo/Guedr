@@ -7,10 +7,11 @@
     tools:context="com.example.alancasas.guedr.activity.ForecastActivity"
     android:layout_margin="@dimen/default_margin"
     >
-    <fragment
-        android:id="@+id/forecast_fragment"
+
+    <FrameLayout
+        android:id="@+id/city_list_fragmen"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="com.example.alancasas.guedr.fragment.ForecastFragment" />
+        />
 
 </FrameLayout>

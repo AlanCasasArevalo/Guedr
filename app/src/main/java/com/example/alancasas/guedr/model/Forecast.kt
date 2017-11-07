@@ -1,7 +1,9 @@
 package com.example.alancasas.guedr.model
 
+import java.io.Serializable
 
-data class Forecast (val maxTemp: Float, val minTemp:Float, val humitity: Float, val description:String, val icon: Int ){
+
+data class Forecast (val maxTemp: Float, val minTemp:Float, val humitity: Float, val description:String, val icon: Int ) : Serializable{
     enum class TempUnit{
         CELSIUS,
         FAHRENHEIT

@@ -8,6 +8,19 @@
     android:layout_margin="@dimen/default_margin"
     >
 
+    <TextView
+        android:id="@+id/city"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:gravity="center_vertical|center_horizontal"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        tools:text="Madrid" />
+
     <ImageView
         android:id="@+id/forecast_image"
         android:contentDescription="@string/forecast_image_description"
@@ -17,7 +30,7 @@
         android:layout_marginEnd="10dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/city"
         android:layout_marginRight="@dimen/default_margin"
         />
 
@@ -37,7 +50,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/city"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_toRightOf="@id/forecast_image"
